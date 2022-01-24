@@ -1,0 +1,60 @@
+<div class="container" fxLayout="column" fxLayoutGap="25px">
+
+    <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="50px" fxLayout.lt-md="column">
+
+        <div fxLayout="column" fxLayoutGap="15px">
+
+            <div class="header">
+                <p class="head1"> Home/Book(01)</p>
+            </div>
+            <div fxLayout="column">
+                <img src="../../../assets/Image 11@2x.png" alt="" height="90px" width="70px" class="img01">
+                <img src="../../../assets/Image 46@2x.png" alt="" height="90px" width="70px" class="img02">
+            </div>
+            <img class="book" src="../../../assets/Image 11@2x.png">
+
+            <div fxLayout="row" fxLayoutAlign="space-between start">
+
+                <button mat-flat-button type="submit" color="primary" class="addtobagbutton" (click)="addtobag()">Add to bag</button>
+
+                <button mat-flat-button type="submit" color="primary" class="wishlistbutton">
+                     Wishlist
+                </button>
+
+            </div>
+        </div>
+
+        <div class="book-data">
+
+            <p class="bookname">{{book.bookName}}</p>
+
+            <p class="author">by {{book.author}}</p>
+
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+
+                <div class="ratingbox">
+
+                    <p class="rating">4.5</p>
+                    <mat-icon class="rating_star">star</mat-icon>
+
+                </div>
+
+                <p class="ratingno">({{book.quantity}})</p>
+
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="10px">
+                <p class="actualprice">Rs.{{book.price-book.discountPrice}}</p>
+                <p class="discountPrice"><del>Rs.  {{book.price}}</del></p>
+            </div>
+
+            <hr>
+
+            <ul class="list">
+                <li class="bookdetails">Book Detail</li>
+            </ul>
+            <p class="description"> {{book.description}}</p>
+            <hr>
+        </div>
+    </div>
+</div>
