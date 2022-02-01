@@ -15,7 +15,16 @@
                         <div style="background-color: gray;">
                             <mat-tab label="Login">
                                 <form [formGroup]="loginForm" (ngSubmit)="onLogin()" fxLayout="column"
-                                    fxLayoutAlign="start start">
+                                    fxLayoutAlign="start start"  style="margin-top: 8%;">
+                                    <div>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Select an option</mat-label>
+                                            <mat-select formControlName="selectedValue" disableRipple>
+                                              <mat-option  value="User">User</mat-option>
+                                              <mat-option value="Admin">Admin</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                    </div>
                                     <div>
                                         <span>Email id</span>
                                         <div>
@@ -55,7 +64,16 @@
 
                         <div style="background-color: honeydew;">
                             <mat-tab label="SignUp">
-                                <form [formGroup]="signupForm" fxLayout="column" fxLayoutAlign="start start">
+                                <form [formGroup]="signupForm" fxLayout="column" fxLayoutAlign="start start" style="margin-top: 8%;">
+                                    <div>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Select an option</mat-label>
+                                            <mat-select formControlName="selectedValue" disableRipple>
+                                              <mat-option  value="User">User</mat-option>
+                                              <mat-option value="Admin">Admin</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                    </div>
                                     <div>
                                         <span>Fullname</span>
                                         <div>

@@ -31,4 +31,55 @@ token:any
     }
     return this.httpService.postService('login', reqData, true, headers)
   }
+  login(data: any) {
+    console.log("data is in user service",data);
+    let options = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+      })
+    }
+    return this.httpService.postService('/bookstore_user/login', data, false, options);
+  }
+
+  adminSignup(reqPayLoad: any) {
+    console.log("data is in user service",reqPayLoad);
+    let options = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+      })
+    }
+    return this.httpService.postService('/bookstore_user/admin/registration', reqPayLoad, false, options);
+
+  }
+
+  adminLogin(data: any) {
+    console.log("data is in user service",data);
+    let options = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+      })
+    }
+    return this.httpService.postService('admin/login', data, false, options);
+  }
+  adminregistrationService(reqData: any) {
+    let headers = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        // 'x-access-token': this.token,
+      })
+    }
+    return this.httpService.postService('admin/registration', reqData, true, headers)
+  }
+
+
+  adminLoginService(reqData:any){
+    let headers = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        // Authorization: this.token
+      })
+    }
+    return this.httpService.postService('admin/login', reqData, true, headers)
+
+  }
 }

@@ -21,6 +21,10 @@ import {MatDividerModule} from '@angular/material/divider';
 import { BookComponent } from './components/book/book/book.component';
 import { GetAllBookComponent } from './components/getAllBook/get-all-book/get-all-book.component';
 import {MatSelectModule} from '@angular/material/select';
+import { OrderComponent } from './components/order/order/order.component';
+import { CartComponent } from './components/cart/cart/cart.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,9 @@ import {MatSelectModule} from '@angular/material/select';
     LoginComponent,
     DashboardComponent,
     BookComponent,
-    GetAllBookComponent
+    GetAllBookComponent,
+    OrderComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,7 @@ import {MatSelectModule} from '@angular/material/select';
     FlexModule,
     FlexLayoutModule,
     FormsModule,ReactiveFormsModule,MatFormFieldModule,MatInputModule,MatIconModule,MatCardModule,MatTabsModule,MatSnackBarModule,
-    HttpClientModule,BrowserAnimationsModule,MatMenuModule,MatDividerModule,MatSelectModule
+    HttpClientModule,BrowserAnimationsModule,MatMenuModule,MatDividerModule,MatSelectModule,MatExpansionModule,MatRadioModule
    
   ],
   providers: [],
