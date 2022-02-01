@@ -13,12 +13,14 @@ export class BookService {
   constructor(private httpService: HttpService) { }
   getBooksService() {
     console.log("data is in books service",);
+    this.token = localStorage.getItem('token')
       let options = {
         headers: new HttpHeaders({
           'Content-type': 'application/json',
+          'x-access-token': this.token,
         })
       }
-      return this.httpService.Getservice('get/book', false, options);
+      return this.httpService.Getservice('get/book', true, options);
   }
   addcartitem(productID: any) {
     console.log("data is in books service",productID);
@@ -86,13 +88,13 @@ export class BookService {
   }
 
   removewishlistitem(productID: any) {
-    let headers = {
+    let options = {
       headers: new HttpHeaders({
         'content-Type': 'application/json',
         'x-access-token': this.token
       })
     }
-    return this.httpService.DeleteService("remove_wishlist_item/" + productID, null, true, headers);
+    return this.httpService.DeleteService("remove_wishlist_item/" + productID, null, true, options);
   }
 
 
@@ -142,5 +144,36 @@ export class BookService {
    
     return this.httpService.Getservice(`get/feedback/${data.product_id}`, true, options);
 
+  }
+  addnewbookService(reqData: any) {
+    let options = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'x-access-token': this.token
+      })
+    }
+    return this.httpService.postService('admin/add/book', reqData, true, options)
+
+  }
+
+  updatebookService(reqPayload: any, productID: any) {
+    let options = {
+      headers: new HttpHeaders({
+        'x-access-token': this.token,
+        'content-Type': 'application/json'
+      })
+    }
+    return this.httpService.PutService('admin/update/book/' + productID, reqPayload, true, options);
+  }
+
+  deleteBookService(productID: any) {
+
+    let options = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'x-access-token': this.token,
+      })
+    }
+    return this.httpService.DeleteService('admin/delete/book/' + productID, null, true, options)
   }
 }

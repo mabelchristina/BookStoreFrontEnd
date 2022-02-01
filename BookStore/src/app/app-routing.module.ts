@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './components/admin/admin/admin.component';
 import { BookComponent } from './components/book/book/book.component';
 import { CartComponent } from './components/cart/cart/cart.component';
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
       { path: 'get-all-books', component: GetAllBookComponent },
       {path:'book',component:BookComponent},
       {path:'orderplaced',component:OrderComponent},
-      {path:'cart',component:CartComponent}
+      {path:'cart',component:CartComponent},
+      {path:'admin',component:AdminComponent}
 
     ]
   },

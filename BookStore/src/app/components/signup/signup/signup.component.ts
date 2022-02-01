@@ -70,6 +70,7 @@ export class SignupComponent implements OnInit {
           console.log(result);
           localStorage.setItem('token', result.result.accessToken);
         });
+        this.router.navigateByUrl('/dashboard/admin')
         this._snackBar.open('Welcome To Admin ', '', {
           duration: 2000,
         });

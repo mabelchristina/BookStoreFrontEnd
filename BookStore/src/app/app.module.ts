@@ -25,6 +25,9 @@ import { OrderComponent } from './components/order/order/order.component';
 import { CartComponent } from './components/cart/cart/cart.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
+import { AdminComponent } from './components/admin/admin/admin.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddNewBookComponent } from './components/addNewBook/add-new-book/add-new-book.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import {MatRadioModule} from '@angular/material/radio';
     BookComponent,
     GetAllBookComponent,
     OrderComponent,
-    CartComponent
+    CartComponent,
+    AdminComponent,
+    AddNewBookComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,7 @@ import {MatRadioModule} from '@angular/material/radio';
     FlexModule,
     FlexLayoutModule,
     FormsModule,ReactiveFormsModule,MatFormFieldModule,MatInputModule,MatIconModule,MatCardModule,MatTabsModule,MatSnackBarModule,
-    HttpClientModule,BrowserAnimationsModule,MatMenuModule,MatDividerModule,MatSelectModule,MatExpansionModule,MatRadioModule
+    HttpClientModule,BrowserAnimationsModule,MatMenuModule,MatDividerModule,MatSelectModule,MatExpansionModule,MatRadioModule,MatDialogModule
    
   ],
   providers: [],
