@@ -18,11 +18,15 @@ export class AdminComponent implements OnInit {
   Addnewbookform!: FormGroup;
   UpdateForm!: FormGroup;
   submitted = false;
+  addbooksForm !: FormGroup;
+
+  addToCart:boolean=false;
   constructor(
     private bookService: BookService,
     private router: Router,
     private _snackBar: MatSnackBar,
     private formBuilder: FormBuilder,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +51,101 @@ export class AdminComponent implements OnInit {
       console.log('BookList are', this.adminBookList);
       console.log(this.BookCount);
     });
+    
+
+    
+    // this.addbooksForm = this.formBuilder.group({
+    //   bookName: ['', Validators.required],
+    //   author: ['', Validators.required],
+    //   description: ['', Validators.required],
+    //   quantity: ['', Validators.required],
+    //   price: ['', Validators.required],
+    //   discountPrice: ['', Validators.required],
+      
+
+    // });
+ // }
+
+  // onSubmit() {
+
+  //   this.submitted = true;
+
+  //   if (this.addbooksForm.valid) {
+
+  //     let reqData = {
+  //       "bookName": this.addbooksForm.value.bookName,
+  //       "author": this.addbooksForm.value.author,
+  //       "description": this.addbooksForm.value.description,
+  //       "quantity": this.addbooksForm.value.quantity,
+  //       "price": this.addbooksForm.value.price,
+  //       "discountPrice": this.addbooksForm.value.discountPrice,
+          
+  //     }
+  //     this.bookService.addnewbookService(reqData).subscribe((response) => {
+  //       console.log(response);
+  //       this.router.navigate(['/admin'])
+  //     })
+
+  //   }
+  //   else {
+  //     console.log("invalid");
+
+  //   }
+
+  // }
   }
-  
+  addnewbook() {
+    this.submitted = true;
+
+    if (this.Addnewbookform.valid) {
+      let reqData = {
+        "bookName": this.Addnewbookform.value.bookName,
+        "author": this.Addnewbookform.value.author,
+        "description": this.Addnewbookform.value.description,
+        "quantity": this.Addnewbookform.value.quantity,
+        "price": this.Addnewbookform.value.price,
+        "discountPrice": this.Addnewbookform.value.discountPrice
+      }
+      this.bookService.addnewbookService(reqData).subscribe((response) => {
+        console.log(response);
+        this._snackBar.open("Book Added Succesfully", '', {
+          duration: 2000,
+          panelClass: ['brown-snackbar']
+        })   
+        this.getallbooks();
+
+      })
+
+    }
+  }
+
+  openDialog(book: any) {
+    const dialogRef = this.dialog.open(AddNewBookComponent, {
+      width: "600px",
+      height: "400px",
+      data: book,
+
+    });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getallbooks()
+      console.log(`Dialog result: ${result}`);
+
+    });
+  }
+
+
+  deleteBook(book: any) {
+    this.bookService.deleteBookService(book._id).subscribe((response: any) => {
+      console.log(response);
+      this._snackBar.open("Book Deleted Succesfully", '', {
+        duration: 2000,
+        panelClass: ['brown-snackbar']
+      })   
+      this.getallbooks();
+
+    })
+  }
 }
+

@@ -1,41 +1,42 @@
-<table class="css-serial" style="border: 1px solid;margin-left:auto;margin-right:auto;margin-top: 50px;" BORDER="7"
-    WIDTH="70%" CELLPADDING="18" CELLSPACING="0">
+<table class="css-serial" style="border: 1px solid;margin-left:auto;margin-right:auto;margin-top: 50px;" BORDER="7" WIDTH="70%" CELLPADDING="18" CELLSPACING="0">
     <thead>
         <tr style="border: 1px solid #DCDCDC;background-color: gainsboro">
-            <th>SI.No</th>
+            <th>Sr.No</th>
             <th>BookImage</th>
-            <th>BookName</th>
             <th>Author</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>DiscountPrice</th>
-            <th>Quantity</th>
-            <th>Action</th>
+            <th>BookName</th>
+            <th>description</th>
+            <th>discountPrice</th>
+            <th>price</th>
+            <th>quantity</th>
+            <th>Actions</th>
+
         </tr>
     </thead>
     <tbody *ngFor="let book of adminBookList">
         <tr style="text-align: center;">
+            <!--intentionally left blank-->
             <td></td>
-            <td><img src="../../../../assets/Image 11.png" width="50px" height="50px" alt=""></td>
-            <td>{{book.bookName}}</td>
+            <td><img src="../../../../assets/Image 11@2x.png" width="50px" height="50px" alt=""></td>
             <td>{{book.author}}</td>
+            <td>{{book.bookName}}</td>
             <td>{{book.description}}</td>
-            <td>Rs.{{book.price}}</td>
             <td>Rs.{{book.discountPrice}}</td>
+            <td>Rs.{{book.price}}</td>
             <td>{{book.quantity}}</td>
             <td>
-                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
-                    <button class="buttons" style="color: black;">Update</button>
-                    <button class="buttons" style="color: black;">Delete</button>
-                </div>
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" >
+                <button  (click)="openDialog(book)"  class="buttons" style="color: blue;">Update</button>
+                <button (click)="deleteBook(book)" class="buttons" style="color: red;">Delete</button>
+            </div>
             </td>
         </tr>
     </tbody>
 </table>
 
-<mat-card class="example-card">
+<mat-card  class="example-card">
 
-    <h1>Add New Book</h1>
+    <h1>Add Book Details</h1>
     <form [formGroup]="Addnewbookform" fxLayout="column">
         <div>
             <span>BookName</span>
@@ -92,5 +93,77 @@
             </div>
         </div>
     </form>
-    <button>add</button>
+    <button (click)="addnewbook()" >add</button>
 </mat-card>
+
+
+<!-- <form [formGroup]="addbooksForm">
+    <div class="addbooks-container" fxFlex="100%" fxLayoutAlign="center center">
+
+        <mat-card class="card2">
+            <h3 class="title">Book Details</h3>
+
+            <mat-card-content fxLayout="column" class="content" fxLayoutGap="-15px">
+
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-card-subtitle class="sub-title">Book Name</mat-card-subtitle>
+                        <input matInput placeholder="bookname" formControlName="bookName"
+                            class="input-field">
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-card-subtitle class="sub-title">Author</mat-card-subtitle>
+                        <input matInput placeholder="author" formControlName="author" class="input-field">
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-card-subtitle class="sub-title">Description</mat-card-subtitle>
+                        <input matInput placeholder="description" formControlName="description"
+                            class="input-field">
+                    </mat-form-field>
+                </div>
+
+
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-card-subtitle class="sub-title">Quantity</mat-card-subtitle>
+                        <input matInput placeholder="quantity" formControlName="quantity"
+                            class="input-field">
+                    </mat-form-field>
+                </div>
+
+
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-card-subtitle class="sub-title">Price</mat-card-subtitle>
+                        <input matInput placeholder="price" formControlName="price" class="input-field">
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-card-subtitle class="sub-title">DiscountPrice</mat-card-subtitle>
+                        <input matInput placeholder="discountPrice" formControlName="discountPrice"
+                            class="input-field">
+                    </mat-form-field>
+                </div>
+
+                <div class="buttons" (click)="onSubmit()"> 
+                    <button class="btn1">Add Book</button>
+                </div>
+
+            </mat-card-content>
+
+
+
+        </mat-card>
+
+
+
+    </div>
+</form> -->
