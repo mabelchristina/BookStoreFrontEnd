@@ -11,12 +11,12 @@
 </div>
 
 <div fxLayout="row wrap" class="all-books" fxLayoutAlign="start center" fxLayoutGap="20px">
-    
 
-    <div *ngFor="let book of booksArray ">
+
+    <div *ngFor="let book of booksArray |search : searchWord ">
 
         <div class="book-con" fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="5px">
-            <div class="img" (click)="bookDetails(book)" >
+            <div class="img" (click)="bookDetails(book)">
                 <img src="../../../../assets/Image 11@2x.png" width="105px" height="135px" alt="">
             </div>
         </div>
@@ -36,12 +36,13 @@
                 </button> ({{book.quantity}})
             </div>
 
-            <div class="price" fxLayout="row" fxLayoutAlign="space-evenly center" style="margin-left: -75px;"
+            <div class="price" fxLayout="row" fxLayoutAlign="space-evenly center" style="margin-left: -75px;margin-bottom: auto;"
                 fxLayoutGap="10px">
                 <p class="actualprice">Rs.{{book.price-book.discountPrice}}</p>
                 <p class="discountPrice"><del>Rs. {{book.price}}</del></p>
             </div>
+            <div style=" color: brown;margin-right: -55%;margin-top: -50%;"><mat-icon style="color: brown;" fxFlexGap=10px (click)="addtobag()"> shopping_cart</mat-icon>
+                &nbsp; <mat-icon style="color: brown;" (click)="addtowishlist()"> favorite</mat-icon>
+             </div>
         </div>
     </div>
-    
-  

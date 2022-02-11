@@ -11,15 +11,12 @@ token:any
     this.token = localStorage.getItem('token')
    }
 
-
   registerUserService(reqPayload: any) {
     console.log(reqPayload);
     let headers = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
-  
       })
-  
     }
     return this.httpService.postService('registration', reqPayload, true, headers)
   }
@@ -71,15 +68,13 @@ token:any
     return this.httpService.postService('admin/registration', reqData, true, headers)
   }
 
-
   adminLoginService(reqData:any){
     let headers = {
       headers: new HttpHeaders({
         'Content-type': 'application/json',
-        // Authorization: this.token
+        // x-access-token: this.token
       })
     }
     return this.httpService.postService('admin/login', reqData, true, headers)
-
   }
 }

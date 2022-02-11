@@ -11,6 +11,7 @@ export class BookComponent implements OnInit {
   subscription: any;
   message: any;
   book: any;
+  bookId:any
   id: any;
   Count: boolean = false;
   addtobagcount: boolean = true;
@@ -23,6 +24,8 @@ export class BookComponent implements OnInit {
   constructor(private bookService: BookService, private data: DataService) {}
 
   ngOnInit(): void {
+    this.bookId = localStorage.getItem("bookId");
+    // console.log(this.bookId);
     this.subscription = this.data.getBook.subscribe((message) => {
       this.message = message;
       this.book = message.data[0];
